@@ -1,0 +1,2 @@
+EDITOR=mcedit
+export EDITOR
