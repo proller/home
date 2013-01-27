@@ -1,0 +1,16 @@
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+[alias]
+        co = checkout
+        ci = commit
+        up = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
+        st = status
+[core]
+        editor = mcedit
+[user]
+        email = proller@github.com
+        name = proller
+[push]
+        default = current
