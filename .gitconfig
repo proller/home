@@ -14,3 +14,5 @@
         name = proller
 [push]
         default = current
+[credential]
+	helper = cache --timeout=8640000
