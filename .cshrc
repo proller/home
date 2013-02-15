@@ -1,4 +1,4 @@
-# $FreeBSD: release/9.0.0/share/skel/dot.cshrc 170119 2007-05-29 22:07:57Z dougb $
+# $FreeBSD: src/share/skel/dot.cshrc,v 1.14.10.1.4.1 2010/06/14 02:09:06 kensmith Exp $
 #
 # .cshrc - csh resource script, read at beginning of execution by each shell
 #
@@ -16,14 +16,9 @@ umask 22
 
 set path = (/sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin $HOME/bin)
 
-setenv	EDITOR	mcedit
+setenv	EDITOR	vi
 setenv	PAGER	more
 setenv	BLOCKSIZE	K
-
-#setenv LANG ru_RU.UTF-8
-setenv LC_CTYPE ru_RU.UTF-8
-setenv LC_COLLATE POSIX
-#setenv LC_ALL ru_RU.UTF-8
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
