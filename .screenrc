@@ -1,2 +1,4 @@
 defscrollback   100000
 termcapinfo     xterm ti@:te@
+utf on on
+defutf on

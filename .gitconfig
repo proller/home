@@ -6,7 +6,14 @@
         co = checkout
         ci = commit
         up = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
+        u  = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
         st = status
+        s = status
+        d = diff
+        b = branch
+        f = fetch
+        p = pull
+        m = merge
 [core]
         editor = mcedit
 [user]
