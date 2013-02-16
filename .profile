@@ -1,6 +1,24 @@
-# $FreeBSD: src/etc/root/dot.profile,v 1.21.10.1.2.1 2009/10/25 01:10:29 kensmith Exp $
+# $FreeBSD: release/9.0.0/share/skel/dot.profile 199243 2009-11-13 05:54:55Z ed $
+#
+# .profile - Bourne Shell startup script for login shells
+#
+# see also sh(1), environ(7).
 #
 
+# remove /usr/games if you want
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
 
-#eval `ssh-agent`
-#ssh-add ~/.ssh/id_rsa
+# Setting TERM is normally done through /etc/ttys.  Do only override
+# if you're sure that you'll never log in via telnet or xterm or a
+# serial line.
+# TERM=xterm; 	export TERM
+
+BLOCKSIZE=K;	export BLOCKSIZE
+EDITOR=mcedit;   	export EDITOR
+PAGER=more;  	export PAGER
+LC_CTYPE=ru_RU.UTF-8; export LC_CTYPE
+
+# set ENV to a file invoked each time sh is started for interactive use.
+ENV=$HOME/.shrc; export ENV
+
+if [ -x /usr/games/fortune ] ; then /usr/games/fortune freebsd-tips ; fi
