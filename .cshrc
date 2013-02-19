@@ -37,3 +37,6 @@ if ($?prompt) then
 		bindkey -k down history-search-forward
 	endif
 endif
+
+alias g	git
+alias s	svn
