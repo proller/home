@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-alias s=`svn`
-alias g=`git`
-=======
 #echo bash init run
 EDITOR=mcedit;		export EDITOR
 LANG=en_US.UTF-8;	export LANG
@@ -53,4 +48,3 @@ esac
 #echo bash inited
 #sleep 1
 
->>>>>>> a83974d9466663896467b2e2be82f78ce8e4afed
