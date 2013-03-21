@@ -1,4 +1,10 @@
+startup_message off
 defscrollback   100000
 termcapinfo     xterm ti@:te@
-utf on on
-defutf on
+shelltitle "$ |bash"
+shell -$SHELL
+defutf8 on
+utf8 on on
+
+#hardstatus lastline "%{+b wk} %c %D %d %M %Y $LOGNAME : %H %=[ %w ] "
+#nethack on
