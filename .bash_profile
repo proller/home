@@ -1,2 +1,1 @@
-EDITOR=mcedit
-export EDITOR
+.bashrc

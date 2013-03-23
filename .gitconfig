@@ -6,7 +6,9 @@
         co = checkout
         ci = commit
         up = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
-        u  = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
+        u  = !git up
+        re  = "!f() { git reset $1; git checkout $1; }; f; f;"
+        ups = !(git fetch upstream && git merge upstream/master)
         st = status
         s = status
         d = diff
