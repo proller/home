@@ -9,6 +9,7 @@
         u  = !git up
         re  = "!f() { git reset $1; git checkout $1; }; f; f;"
         ups = !(git fetch upstream && git merge upstream/master)
+        upd = !(git fetch && git merge origin/dev)
         st = status
         s = status
         d = diff
