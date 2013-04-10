@@ -5,6 +5,7 @@ LANG=en_US.UTF-8;	export LANG
 alias mc='mc -x'
 alias g='git'
 alias s='svn'
+alias m='make'
 alias q='exit'
 
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
@@ -31,15 +32,15 @@ alias q='exit'
 #}
 
 
-case "$TERM" in
-  screen)
-      set -o functrace
-      trap 'echo -ne "\ek\$:${BASH_COMMAND:0:20}\e\\"' DEBUG
-      export PS1='\[\033k$:\W\033\\\]\u@\h:\w\$ '
-    ;;
-  *)
-    ;;
-esac
+#case "$TERM" in
+#  screen)
+#      set -o functrace
+#      trap 'echo -ne "\ek\$:${BASH_COMMAND:0:20}\e\\"' DEBUG
+#      export PS1='\[\033k$:\W\033\\\]\u@\h:\w\$ '
+#    ;;
+#  *)
+#    ;;
+#esac
 
 #LC_CTYPE=ru_RU.UTF-8;   export LC_CTYPE
 #LC_ALL="ru_RU.UTF-8";   export LC_ALL

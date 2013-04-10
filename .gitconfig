@@ -18,6 +18,7 @@
         p = pull
         m = merge
         a = add
+        cp = cherry-pick
 [core]
         editor = mcedit
 [user]
