@@ -5,8 +5,8 @@
 [alias]
         co = checkout
         ci = commit
-        up = !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
-        #up = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
+        #up = !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
+        up = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
         u  = !git up
         re  = "!f() { git reset $1; git checkout $1; }; f; f"
         #re  = "!f() { git reset $1; git checkout $1; git reset $1; git checkout $1; }; f"
