@@ -8,6 +8,7 @@ alias s='svn'
 alias m='make'
 alias q='exit'
 alias sc='screen -DR'
+ssc() { ssh -t $1 screen -DR; }
 
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
 
