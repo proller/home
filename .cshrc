@@ -40,3 +40,4 @@ endif
 
 alias g	git
 alias s	svn
+alias sc        screen -DR

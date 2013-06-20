@@ -7,6 +7,7 @@ alias g='git'
 alias s='svn'
 alias m='make'
 alias q='exit'
+alias sc='screen -DR'
 
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
 
