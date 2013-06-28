@@ -6,7 +6,7 @@ alias mc='mc -x'
 alias g='git'
 alias s='svn'
 alias m='make'
-alias gm='make'
+alias gm='gmake'
 alias q='exit'
 alias sc='screen -DR'
 ssc() { ssh -t $1 screen -DR; }
