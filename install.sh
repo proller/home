@@ -9,3 +9,5 @@ git up home
 #ln -s home/* home/.* ./
 ln -s home/.* ./
 #rm install.sh
+chmod g-w .ssh/*
+chmod go-rwx .ssh/id_rsa
