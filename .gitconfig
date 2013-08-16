@@ -17,6 +17,7 @@
         dd = !(git fetch && git diff origin/dev)
         st = status
         s = status
+        sh = show
         d = diff
         b = branch
         f = fetch
@@ -24,6 +25,8 @@
         m = merge
         a = add
         cp = cherry-pick
+	l = log
+	lp = !git log -p
 [core]
         editor = mcedit
 [user]
