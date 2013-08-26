@@ -3,6 +3,7 @@ EDITOR=mcedit;		export EDITOR
 LANG=en_US.UTF-8;	export LANG
 
 alias mc='mc -x'
+alias me='mcedit'
 alias g='git'
 alias s='svn'
 alias m='make'
