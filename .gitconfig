@@ -15,6 +15,7 @@
         upd = !(git fetch && git merge origin/dev)
         du = !(git fetch upstream && git diff upstream/master)
         dd = !(git fetch && git diff origin/dev)
+        dm = !(git diff master)
         st = status
         s = status
         sh = show

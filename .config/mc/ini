@@ -151,6 +151,12 @@ filepos_max_saved_entries=1024
 editor_cursor_after_inserted_block=0
 editor_ask_filename_before_edit=0
 
+editor_filesize_threshold=64M
+
+
+
+
+
 [Layout]
 message_visible=0
 keybar_visible=1
@@ -164,6 +170,11 @@ vertical_equal=1
 left_panel_size=113
 horizontal_equal=1
 top_panel_size=1
+
+
+
+
+
 
 
 
