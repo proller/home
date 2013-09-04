@@ -11,9 +11,9 @@
         re  = "!f() { git reset $1 && git checkout $1; }; f; f"
         #re  = "!f() { git reset $1; git checkout $1; git reset $1; git checkout $1; }; f"
         #re1  = "!f() { git reset $1; git checkout $1; }; f"
-        ups = !(git fetch upstream && git merge upstream/master)
+        ups = !(git fetch upstream && git merge --no-edit upstream/master)
         upsm = !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
-        upd = !(git fetch && git merge origin/dev)
+        upd = !(git fetch && git merge --no-edit origin/dev)
         du = !(git fetch upstream && git diff upstream/master)
         dd = !(git fetch && git diff origin/dev)
         dm = !(git diff master)
