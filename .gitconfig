@@ -8,15 +8,13 @@
         #up = !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
         up = !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
         u  = !git up
-        re  = "!f() { git reset $1 && git checkout $1; }; f; f"
-        #re  = "!f() { git reset $1; git checkout $1; git reset $1; git checkout $1; }; f"
-        #re1  = "!f() { git reset $1; git checkout $1; }; f"
-        ups = !(git fetch upstream && git merge --no-edit upstream/master)
-        upsm = !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
-        upd = !(git fetch && git merge --no-edit origin/dev)
-        du = !(git fetch upstream && git diff upstream/master)
-        dd = !(git fetch && git diff origin/dev)
-        dm = !(git diff master)
+	re	= "!f() { git reset $1 && git checkout $1; }; f; f"
+	ups	= !(git fetch upstream && git merge --no-edit upstream/master)
+	upsm	= !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
+	upd	= !(git fetch && git merge --no-edit origin/dev)
+	du	= "!f() { git fetch upstream && git diff upstream/master -- $*; }; f"
+	dd	= "!f() { git fetch && git diff origin/dev -- $*; }; f"
+	dm	= "!f() { git diff master -- $*; }; f"
         st = status
         s = status
         sh = show
@@ -26,11 +24,13 @@
         p = pull
         m = merge
         a = add
-        cp = cherry-pick
-	l = log
-	lp = !git log -p
-	th  = "!f() { git checkout --theirs $1; git add $1; }; f"
-	lf  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+	cp	= cherry-pick
+	l	= log
+	lp	= !git log -p
+	th	= "!f() { git checkout --theirs $1; git add $1; }; f"
+	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && echo 'git commit && git push -f'; }; f"
+
 [core]
         editor = mcedit
 [user]
