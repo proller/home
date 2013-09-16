@@ -4,7 +4,7 @@
 	#up	= !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
 	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	u	= !git up
-	re	= "!f() { git reset $*; git checkout -- $*; }; f; f"
+	re	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
 	ups	= !(git fetch upstream && git merge --no-edit upstream/master)
 	upsm	= !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
 	upd	= !(git fetch && git merge --no-edit origin/dev)
