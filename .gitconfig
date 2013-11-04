@@ -36,7 +36,7 @@
 [core]
         editor = mcedit
 [user]
-        email = proller@github.com
+        email = proler@github.com
         name = proller
 [push]
         default = current
