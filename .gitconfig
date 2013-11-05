@@ -28,6 +28,7 @@
 	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && echo 'git commit && git push -f'; }; f"
 	su	= "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
 	sub	= !(git submodule update --init --recursive)
+	fa	= !(git fetch --all)
 
 [color]
         diff = auto
