@@ -29,6 +29,7 @@
 	su	= "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
 	sub	= !(git submodule update --init --recursive)
 	fa	= !(git fetch --all)
+	pa	= !(git pull --all)
 
 [color]
         diff = auto
