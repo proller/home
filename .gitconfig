@@ -5,11 +5,11 @@
 	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	u	= !git up
 	re	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
-	upss	= !(git fetch upstream && git merge --no-edit upstream/master)
-	ups	= !(git fetch upstream && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize upstream/master)
+	ups	= !(git fetch upstream && git merge --no-edit upstream/master)
+	upss	= !(git fetch upstream && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize upstream/master)
 	upsm	= !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
-	upds	= !(git fetch && git merge --no-edit origin/dev)
-	upd	= !(git fetch && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/dev)
+	upd	= !(git fetch && git merge --no-edit origin/dev)
+	upds	= !(git fetch && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/dev)
 	du	= "!f() { git fetch upstream && git diff upstream/master -- $*; }; f"
 	dd	= "!f() { git fetch && git diff origin/dev -- $*; }; f"
 	dm	= "!f() { git diff master -- $*; }; f"
@@ -27,8 +27,8 @@
 	lp	= "!f() { git log -p -- $*; }; f"
 	th	= "!f() { git checkout --theirs $1; git add $1; }; f"
 	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
-	upbs	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && echo 'git commit && git push -f'; }; f"
-	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash  -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/$1 && echo 'git commit && git push -f'; }; f"
+	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && echo 'git commit && git push -f'; }; f"
+	upbs	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash  -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/$1 && echo 'git commit && git push -f'; }; f"
 	su	= "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
 	sub	= !(git submodule update --init --recursive)
 	fa	= !(git fetch --all)
