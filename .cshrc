@@ -41,6 +41,6 @@ endif
 alias g		git
 alias s		svn
 alias sc	screen -DR
-alias m		make
-alias gm	gmake
+alias m		nice make
+alias gm	nice gmake
 alias me	mcedit
