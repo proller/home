@@ -35,15 +35,19 @@
 	pa	= !(git pull --all)
 
 [color]
-        diff = auto
-        status = auto
-        branch = auto
+	diff	= auto
+	status	= auto
+	branch	= auto
+
 [core]
-        editor = mcedit
+	editor	= mcedit
+
 [user]
-        email = proler@github.com
-        name = proller
+	email	= proler@github.com
+	name	= proller
+
 [push]
-        default = current
+	default	= current
+
 [credential]
-	helper = cache --timeout=8640000
+	helper	= cache --timeout=8640000
