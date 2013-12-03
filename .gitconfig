@@ -19,8 +19,10 @@
 	d	= diff
 	b	= branch
 	f	= fetch
+	fa	= fetch --all
 	p	= pull
 	m	= merge
+	ms	= "!f() { git merge -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize $1; }; f"
 	a	= add
 	cp	= cherry-pick
 	l	= log
