@@ -1,6 +1,7 @@
 [alias]
 	co	= checkout
 	ci	= commit
+	cl	= clone
 	#up	= !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
 	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	u	= !git up
