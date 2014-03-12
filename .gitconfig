@@ -30,7 +30,7 @@
 	l	= log
 	rem	= remote
 	lp	= "!f() { git log -p -- $*; }; f"
-	th	= "!f() { git checkout --theirs $1; git add $1; }; f"
+	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
 	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && echo 'git commit && git push -f'; }; f"
 	upbs	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash  -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/$1 && echo 'git commit && git push -f'; }; f"
