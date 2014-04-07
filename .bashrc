@@ -11,6 +11,8 @@ alias gm='nice gmake'
 alias q='exit'
 alias sc='screen -DR'
 ssc() { ssh -t $1 screen -DR; }
+#ssc() { /usr/local/bin/ssh -z $1 screen -DR || ssh -t $1 screen -DR; }
+ssz() { /usr/local/bin/ssh -z -t $1 screen -DR; }
 t() { perl -e "print scalar localtime $1"; }
 
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
