@@ -10,7 +10,7 @@ alias m='nice make'
 alias gm='nice gmake'
 alias q='exit'
 alias sc='screen -DR'
-ssc() { ssh -t $* screen -DR; }
+ssc() { /usr/local/bin/ssh -t $* screen -DR || ssh -t $* screen -DR || ssh $*; }
 #ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
 ssz() { /usr/local/bin/ssh -z -t $* screen -DR; }
 t() { perl -e "print scalar localtime $*"; }

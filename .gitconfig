@@ -7,7 +7,8 @@
 	u	= !git up
 	res	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
 	ups	= !(git fetch upstream && git merge --no-edit upstream/master)
-	upss	= !(git fetch upstream && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize upstream/master)
+	upss	= !(git fetch upstream && git stash && git merge --no-edit upstream/master && git stash pop)
+	upsp	= !(git fetch upstream && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize upstream/master)
 	upsm	= !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
 	upd	= !(git fetch && git merge --no-edit origin/dev)
 	upds	= !(git fetch && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/dev)
