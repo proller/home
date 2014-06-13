@@ -38,9 +38,12 @@ if ($?prompt) then
 	endif
 endif
 
+alias mc	mc -x
+alias me	mcedit
 alias g		git
 alias s		svn
-alias sc	screen -DR
 alias m		nice make
 alias gm	nice gmake
-alias me	mcedit
+alias q		exit
+alias sc	screen -DR
+alias tf	tail -F
