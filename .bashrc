@@ -14,7 +14,7 @@ alias tf='tail -F'
 ssc() { /usr/local/bin/ssh -t $* screen -DR || ssh -t $* screen -DR || ssh $*; }
 #ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
 ssz() { /usr/local/bin/ssh -z -t $* screen -DR; }
-t() { perl -e "print scalar localtime $*"; }
+t() { perl -e "print map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
 
