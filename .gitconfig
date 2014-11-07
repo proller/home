@@ -1,7 +1,7 @@
 [alias]
 	co	= checkout
 	ci	= commit
-	cl	= clone
+	cl	= "!f() { git clone --recursive $*; }; f"
 	#up	= !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
 	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	u	= !git up
@@ -30,6 +30,7 @@
 	cp	= cherry-pick
 	l	= log
 	rem	= remote
+	rv	= "!f() { git remote -v $*; }; f"
 	lp	= "!f() { git log -p -- $*; }; f"
 	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
 	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
