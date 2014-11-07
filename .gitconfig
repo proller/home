@@ -39,6 +39,7 @@
 	sub	= !(git submodule update --init --recursive)
 	fa	= !(git fetch --all)
 	pa	= !(git pull --all)
+	bw	= "!f() { git blame -w $*; }; f"
 
 [color]
 	diff	= auto
