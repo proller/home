@@ -47,3 +47,4 @@ alias gm	nice gmake
 alias q		exit
 alias sc	screen -DR
 alias tf	tail -F
+alias jf	json_xs <

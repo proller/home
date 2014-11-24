@@ -11,6 +11,7 @@ alias gm='nice gmake'
 alias q='exit'
 alias sc='screen -DR'
 alias tf='tail -F'
+alias jf='json_xs <'
 ssc() { /usr/local/bin/ssh -t $* screen -DR || ssh -t $* screen -DR || ssh $*; }
 #ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
 ssz() { /usr/local/bin/ssh -z -t $* screen -DR; }
