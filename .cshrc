@@ -44,6 +44,7 @@ alias g		git
 alias s		svn
 alias m		nice make
 alias gm	nice gmake
+alias mj	nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)
 alias q		exit
 alias sc	screen -DR
 alias tf	tail -F
