@@ -9,6 +9,7 @@ alias s='svn'
 alias m='nice make'
 alias gm='nice gmake'
 alias mj='time nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)'
+alias mjv='mj V=1 VERBOSE=1'
 alias q='exit'
 alias sc='screen -DR'
 alias tf='tail -F'
@@ -18,6 +19,14 @@ ssc() { /usr/local/bin/ssh -t $* screen -DR || ssh -t $* screen -DR || ssh $*; }
 ssz() { /usr/local/bin/ssh -z -t $* screen -DR; }
 t() { perl -e "print map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 p() { perl -M5.16.0 -e "say '', $*"; }
+
+
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
 
