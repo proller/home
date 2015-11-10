@@ -16,7 +16,7 @@ alias tf='tail -F'
 alias jf='json_xs <'
 ssc() { /usr/local/bin/ssh -t $* screen -DR || ssh -t $* screen -DR || ssh $*; }
 #ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
-ssz() { /usr/local/bin/ssh -o UserKnownHostsFile ~/.ssh/known_hosts_sctp -z -t $* screen -DR; }
+ssz() { /usr/local/bin/ssh -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen -DR; }
 t() { perl -e "print map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 p() { perl -M5.16.0 -e "say '', $*"; }
 
