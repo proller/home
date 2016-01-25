@@ -1,48 +1,50 @@
 [alias]
+	a	= add
+	b	= branch
+	bl	= blame
+	bw	= "!f() { git blame -w $*; }; f"
 	co	= checkout
 	ci	= commit
 	cl	= "!f() { git clone --recursive $*; }; f"
+	cp	= cherry-pick
+	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
+	ou	= "!f() { git checkout --ours $*; git add $*; }; f"
+	d	= diff
+	du	= "!f() { git fetch upstream && git diff upstream/master -- $*; }; f"
+	dd	= "!f() { git fetch && git diff origin/dev -- $*; }; f"
+	dm	= "!f() { git diff master -- $*; }; f"
+	do	= "!f() { git fetch && git diff origin/master -- $*; }; f"
+	dw	= "!f() { git diff -w -- $*; }; f"
+	f	= fetch
+	fa	= !(git fetch --all)
+	l	= log
+	lp	= "!f() { git log -p -- $*; }; f"
+	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+	m	= merge
+	ms	= "!f() { git merge -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize $1; }; f"
+	p	= pull
+	pa	= !(git pull --all)
+	rem	= remote
+	res	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
+	rv	= "!f() { git remote -v $*; }; f"
+	sh	= show
+	st	= status
+	s	= status
+	su	= "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
+	sub	= !(git submodule update --init --recursive)
+	t	= tag
 	#up	= !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
 	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	u	= !git us
 	us	= "!f() { git up; git sub; }; f"
-	res	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
 	ups	= !(git fetch upstream && git merge --no-edit upstream/master)
 	upss	= !(git fetch upstream && git stash && git merge --no-edit upstream/master && git stash pop)
 	upsp	= !(git fetch upstream && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize upstream/master)
 	upsm	= !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
 	upd	= !(git fetch && git merge --no-edit origin/dev)
 	upds	= !(git fetch && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/dev)
-	du	= "!f() { git fetch upstream && git diff upstream/master -- $*; }; f"
-	dd	= "!f() { git fetch && git diff origin/dev -- $*; }; f"
-	dm	= "!f() { git diff master -- $*; }; f"
-	do	= "!f() { git fetch && git diff origin/master -- $*; }; f"
-	st	= status
-	s	= status
-	sh	= show
-	d	= diff
-	b	= branch
-	f	= fetch
-	fa	= fetch --all
-	p	= pull
-	m	= merge
-	ms	= "!f() { git merge -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize $1; }; f"
-	a	= add
-	cp	= cherry-pick
-	l	= log
-	rem	= remote
-	rv	= "!f() { git remote -v $*; }; f"
-	lp	= "!f() { git log -p -- $*; }; f"
-	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
-	ou	= "!f() { git checkout --ours $*; git add $*; }; f"
-	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && echo 'git commit && git push -f'; }; f"
 	upbs	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash  -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/$1 && echo 'git commit && git push -f'; }; f"
-	su	= "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
-	sub	= !(git submodule update --init --recursive)
-	fa	= !(git fetch --all)
-	pa	= !(git pull --all)
-	bw	= "!f() { git blame -w $*; }; f"
 
 [color]
 	diff	= auto
