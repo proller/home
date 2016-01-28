@@ -21,9 +21,11 @@
 	lp	= "!f() { git log -p -- $*; }; f"
 	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	m	= merge
+	ma	= !(git merge --abort)
 	ms	= "!f() { git merge -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize $1; }; f"
 	p	= pull
 	pa	= !(git pull --all)
+	ra	= !(git rebase --abort)
 	rem	= remote
 	res	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
 	rv	= "!f() { git remote -v $*; }; f"
