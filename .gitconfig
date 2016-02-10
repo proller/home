@@ -1,6 +1,7 @@
 [alias]
 	a	= add
 	b	= branch
+	ba	= !(git branch --all)
 	bl	= blame
 	bw	= "!f() { git blame -w $*; }; f"
 	co	= checkout
@@ -65,3 +66,7 @@
 
 [credential]
 	helper	= cache --timeout=8640000
+[stash]
+	showPatch = true
+[rebase]
+	autostash = true
