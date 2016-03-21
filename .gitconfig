@@ -23,7 +23,8 @@
 	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	m	= merge
 	ma	= !(git merge --abort)
-	ms	= "!f() { git merge -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize $1; }; f"
+	msp	= "!f() { git merge -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize $1; }; f"
+	msq	= "!f() { git merge --squash $*; }; f"
 	p	= pull
 	pa	= !(git pull --all)
 	ra	= !(git rebase --abort)

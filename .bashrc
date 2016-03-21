@@ -18,7 +18,7 @@ ssc() { /usr/local/bin/ssh -t $* screen -DR || ssh -t $* screen -DR || ssh $*; }
 #ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
 ssz() { /usr/local/bin/ssh -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen -DR; }
 t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
-p() { perl -E "say '', $*"; }
+p() { perl -E "say '', $@"; }
 
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
