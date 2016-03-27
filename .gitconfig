@@ -8,6 +8,7 @@
 	ci	= commit
 	cl	= "!f() { git clone --recursive $*; }; f"
 	cp	= cherry-pick
+	cpa	= !(git cherry-pick --abort)
 	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
 	ou	= "!f() { git checkout --ours $*; git add $*; }; f"
 	d	= diff
