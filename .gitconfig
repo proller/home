@@ -12,10 +12,14 @@
 	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
 	ou	= "!f() { git checkout --ours $*; git add $*; }; f"
 	d	= diff
-	du	= "!f() { git fetch upstream && git diff upstream/master -- $*; }; f"
 	dd	= "!f() { git fetch && git diff origin/dev -- $*; }; f"
+	dds	= "!f() { git diff origin/dev --stat -- $*; }; f"
+	du	= "!f() { git fetch upstream && git diff upstream/master -- $*; }; f"
+	dus	= "!f() { git diff upstream/master --stat -- $*; }; f"
 	dm	= "!f() { git diff master -- $*; }; f"
+	dms	= "!f() { git diff master --stat -- $*; }; f"
 	do	= "!f() { git fetch && git diff origin/master -- $*; }; f"
+	dos	= "!f() { git diff origin/master --stat -- $*; }; f"
 	dw	= "!f() { git diff -w -- $*; }; f"
 	f	= fetch
 	fa	= !(git fetch --all)
