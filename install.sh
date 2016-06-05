@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# git clone https://proller@github.com/proller/home.git; cd home
+# git clone https://proller@github.com/proller/home.git; cd home; ./install.sh
 #
 git up
 cd ..
