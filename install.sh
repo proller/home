@@ -6,9 +6,7 @@ git up
 cd ..
 git clone https://github.com/proller/home.git
 git up home
-#ln -s home/* home/.* ./
-ln -vs home/.* ./
-ln -vsf ~/home/.config/mc/* ./.config/mc
-#rm install.sh
+ln -vsf home/home/.* ./
+ln -vsf ~/home/home/.config/mc/* ./.config/mc
 chmod go-rw .ssh/* .login_conf
 chmod go-rwx .ssh/id_rsa.git-credential-cache
