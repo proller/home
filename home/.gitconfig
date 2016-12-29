@@ -20,6 +20,7 @@
 	dms	= "!f() { git diff master --stat -- $*; }; f"
 	do	= "!f() { git fetch && git diff origin/master -- $*; }; f"
 	dos	= "!f() { git diff origin/master --stat -- $*; }; f"
+	dt	= "!f() { git difftool -y -- $*; }; f"
 	dw	= "!f() { git diff -w -- $*; }; f"
 	f	= fetch
 	fa	= !(git fetch --all)

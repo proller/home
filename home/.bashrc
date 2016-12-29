@@ -10,6 +10,7 @@ alias m='nice make'
 alias gm='nice gmake'
 alias mj='time nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)'
 alias mjv='mj V=1 VERBOSE=1'
+alias ml='time nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)'
 alias q='exit'
 alias sc='screen -DR'
 alias tf='tail -F'
@@ -19,7 +20,7 @@ ssc() { /usr/local/bin/ssh -t $* screen -DR || ssh -t $* screen -DR || ssh $*; }
 #ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
 ssz() { /usr/local/bin/ssh -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen -DR; }
 t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
-p() { perl -E "say '', $@"; }
+p() { perl -E "say q{}, sub{ $* }->()"; }
 
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
