@@ -2,24 +2,26 @@
 EDITOR=mcedit;		export EDITOR
 LANG=en_US.UTF-8;	export LANG
 
+nice="nice -n 20"
+screen_opt="-a -h 100000 -U"
+
 alias mc='mc -x'
 alias me='mcedit'
 alias g='git'
 alias s='svn'
-alias m='nice make'
-alias gm='nice gmake'
-alias mj='CCACHE_PREFIX=distcc time nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)'
+alias m='$nice make'
+alias gm='$nice gmake'
+alias mj='CCACHE_PREFIX=distcc time $nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)'
 alias mjv='mj V=1 VERBOSE=1'
-alias ml='CCACHE_PREFIX=distcc time nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)'
-alias ml2='CCACHE_PREFIX=distcc time nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))'
-alias mjd='CCACHE_PREFIX=distcc time nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))'
+alias ml='CCACHE_PREFIX=distcc time $nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)'
+alias ml2='CCACHE_PREFIX=distcc time $nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))'
+alias mjd='CCACHE_PREFIX=distcc time $nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))'
 
 alias q='exit'
 alias sc='screen -DR'
 alias tf='tail -F'
 alias jf='json_xs <'
 alias dut='du | sort -rn | head -n 20'
-screen_opt="-a -h 100000 -U"
 ssc() { /usr/local/bin/ssh -t $* screen $screen_opt -DR || ssh -t $* screen $screen_opt -DR || ssh $*; }
 #ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
 ssz() { /usr/local/bin/ssh -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
