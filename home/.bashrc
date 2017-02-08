@@ -1,21 +1,22 @@
 #echo bash init run
 EDITOR=mcedit;		export EDITOR
 LANG=en_US.UTF-8;	export LANG
+PATH="$PATH:$HOME/bin";	export PATH
 
-nice="nice -n 20"
+nice="nice -n20"
 screen_opt="-a -h 100000 -U"
 
-alias mc='mc -x'
-alias me='mcedit'
-alias g='git'
-alias s='svn'
-alias m='$nice make'
-alias gm='$nice gmake'
-alias mj='CCACHE_PREFIX=distcc time $nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)'
-alias mjv='mj V=1 VERBOSE=1'
-alias ml='CCACHE_PREFIX=distcc time $nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)'
-alias ml2='CCACHE_PREFIX=distcc time $nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))'
-alias mjd='CCACHE_PREFIX=distcc time $nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))'
+alias mc="mc -x"
+alias me="mcedit"
+alias g="git"
+alias s="svn"
+alias m="$nice make"
+alias gm="$nice gmake"
+alias mj="time env CCACHE_PREFIX=distcc $nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)"
+alias mjv="mj V=1 VERBOSE=1"
+alias ml="time env CCACHE_PREFIX=distcc $nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)"
+alias ml2="time env CCACHE_PREFIX=distcc $nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias mjd="time env CCACHE_PREFIX=distcc $nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
 
 alias q='exit'
 alias sc='screen -DR'
