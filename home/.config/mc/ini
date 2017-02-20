@@ -84,6 +84,8 @@ ignore_ftp_chattr_errors=true
 skin=default
 filepos_max_saved_entries=1024
 
+editor_state_full_filename=1
+
 [Layout]
 message_visible=0
 keybar_visible=1
@@ -149,7 +151,7 @@ content_first_hit=false
 content_whole_words=false
 content_all_charsets=false
 ignore_dirs_enable=true
-ignore_dirs=
+ignore_dirs=build
 
 [HotlistConfig]
 expanded_view_of_groups=0
