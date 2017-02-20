@@ -53,7 +53,7 @@
 	upsm	= !(git fetch upstream && git co upstream/master && git branch -D master && git checkout -b master)
 	upd	= !(git fetch && git merge --no-edit origin/dev)
 	upds	= !(git fetch && git merge --no-edit -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/dev)
-	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && echo 'git commit && git push -f'; }; f"
+	upb	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash origin/$1 && git su $1 && echo 'git commit && git push -f'; }; f"
 	upbs	= "!f() { echo squashing [$1] && git ups && git upsm && git branch -D $1 && git co master && git co -b $1 && git merge --squash  -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize origin/$1 && echo 'git commit && git push -f'; }; f"
 
 [color]
