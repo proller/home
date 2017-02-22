@@ -2,7 +2,7 @@
 EDITOR=mcedit;		export EDITOR
 LANG=en_US.UTF-8;	export LANG
 PATH="$PATH:$HOME/bin";	export PATH
-CCACHE_PREFIX=distcc
+CCACHE_PREFIX=distcc;	export CCACHE_PREFIX
 
 nice="nice -n20"
 screen_opt="-a -h 100000 -U"
