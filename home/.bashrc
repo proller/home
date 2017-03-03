@@ -29,6 +29,8 @@ ssc() { /usr/local/bin/ssh -t $* screen $screen_opt -DR || ssh -t $* screen $scr
 ssz() { /usr/local/bin/ssh -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
 t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 p() { perl -E "say q{}, sub{ $* }->()"; }
+kd() { kdevelop $* & }
+cf() { cmd=`bash -c "compgen -c clang-format | grep 'clang-format-[[:digit:]]' | sort --version-sort --reverse | head -n1"`; $cmd -i $*; }
 
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
