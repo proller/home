@@ -3,7 +3,7 @@
 	b	= branch
 	ba	= !(git branch --all)
 	bl	= blame
-	bw	= "!f() { git blame -w $*; }; f"
+	bw	= "!f() { git blame -w --ignore-all-space --ignore-blank-lines $*; }; f"
 	co	= checkout
 	ci	= commit
 	cl	= "!f() { git clone --recursive $*; }; f"
@@ -21,11 +21,12 @@
 	do	= "!f() { git fetch && git diff origin/master -- $*; }; f"
 	dos	= "!f() { git diff origin/master --stat -- $*; }; f"
 	dt	= "!f() { git difftool -y -- $*; }; f"
-	dw	= "!f() { git diff -w -- $*; }; f"
+	dw	= "!f() { git diff -w --ignore-all-space --ignore-blank-lines -- $*; }; f"
 	f	= fetch
 	fa	= !(git fetch --all)
 	l	= log
 	lp	= "!f() { git log -p -- $*; }; f"
+	lpw	= "!f() { git log -w --ignore-all-space --ignore-blank-lines -p -- $*; }; f"
 	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	m	= merge
 	ma	= !(git merge --abort)
