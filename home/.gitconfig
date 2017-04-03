@@ -64,6 +64,7 @@
 
 [core]
 	editor	= mcedit
+	pager	= less
 
 [user]
 	email	= proller@github.com
