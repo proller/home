@@ -26,8 +26,8 @@ LC_CTYPE=ru_RU.UTF-8; export LC_CTYPE
 
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+    if [ -f "$HOME/.bash_aliases" ]; then
+	. "$HOME/.bash_aliases"
     fi
 fi
 
