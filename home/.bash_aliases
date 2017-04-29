@@ -31,6 +31,7 @@ t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 p() { perl -E "say q{}, sub{ $* }->()"; }
 kd() { KDevelop.AppImage $* > /dev/null 2>&1 < /dev/null & }
 cf() { cmd=`bash -c "compgen -c clang-format | grep 'clang-format-[[:digit:]]' | sort --version-sort --reverse | head -n1"`; $cmd -i $*; }
+cmcc() { cmake -DCMAKE_C_COMPILER_LAUNCHER=`which ccache` -DCMAKE_CXX_COMPILER_LAUNCHER=`which ccache` $*; }
 
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
