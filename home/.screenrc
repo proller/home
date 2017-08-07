@@ -8,3 +8,7 @@ utf8 on on
 
 #hardstatus lastline "%{+b wk} %c %D %d %M %Y $LOGNAME : %H %=[ %w ] "
 #nethack on
+
+vbell on
+vbell_msg ''
+termcapinfo *  vb=:

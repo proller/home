@@ -1,8 +1,8 @@
 #echo bash init run
-EDITOR=mcedit;		export EDITOR
-LANG=en_US.UTF-8;	export LANG
-PATH="$PATH:$HOME/bin";	export PATH
-CCACHE_PREFIX=distcc;	export CCACHE_PREFIX
+export EDITOR=mcedit
+export LANG=en_US.UTF-8
+export PATH="$PATH:$HOME/bin"
+export CCACHE_PREFIX=distcc
 
 nice="nice -n20"
 screen_opt="-a -h 100000 -U"
@@ -42,6 +42,14 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+
+# https://superuser.com/questions/180148/how-do-you-get-screen-to-automatically-connect-to-the-current-ssh-agent-when-re
+#if test "$SSH_AUTH_SOCK" ; then
+if [ -e "${SSH_AUTH_SOCK}" ]; then
+    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
 
 # If runing in screen, set the window title to the command about to be executed
@@ -75,10 +83,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 #  *)
 #    ;;
 #esac
-
-#LC_CTYPE=ru_RU.UTF-8;   export LC_CTYPE
-#LC_ALL="ru_RU.UTF-8";   export LC_ALL
-#LANG=ru_RU.UTF-8;       export LANG
 
 #echo bash inited
 #sleep 1
