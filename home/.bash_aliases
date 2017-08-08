@@ -45,8 +45,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # https://superuser.com/questions/180148/how-do-you-get-screen-to-automatically-connect-to-the-current-ssh-agent-when-re
 #if test "$SSH_AUTH_SOCK" ; then
-if [ -e "${SSH_AUTH_SOCK}" ]; then
-    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+if [ -e "${SSH_AUTH_SOCK}" ] && [ "${SSH_AUTH_SOCK}" != "$HOME/.ssh/ssh_auth_sock" ]; then
+    ln -sf $SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
