@@ -18,7 +18,7 @@ alias mjv="mj V=1 VERBOSE=1"
 alias ml="time env CCACHE_PREFIX=distcc $nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)"
 alias ml2="time env CCACHE_PREFIX=distcc $nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
 alias mjd="time env CCACHE_PREFIX=distcc $nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
-alias mjdz="time env CCACHE_PREFIX=distcc $nice make -j $((`distcc -j` >> 2)) -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias mjdz="time env CCACHE_PREFIX=distcc $nice make -j $((`distcc -j` || 2)) -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
 
 alias q='exit'
 alias sc='screen -DR'
