@@ -7,6 +7,7 @@ export CCACHE_PREFIX=distcc
 nice="nice -n20"
 screen_opt="-a -h 100000 -U"
 
+alias bx="bash -x"
 alias mc="mc -x"
 alias me="mcedit"
 alias g="git"
