@@ -2,7 +2,11 @@
 export EDITOR=mcedit
 export LANG=en_US.UTF-8
 export PATH="$PATH:$HOME/bin"
-export CCACHE_PREFIX=distcc
+
+distccj=`distcc -j 2> /dev/null`
+[ -z $distccj ] && distccj=0
+(("$distccj" >= "1")) && export CCACHE_PREFIX=distcc
+[ -n "$CCACHE_PREFIX" ] && CCP=CCACHE_PREFIX=distcc
 
 nice="nice -n20"
 screen_opt="-a -h 100000 -U"
@@ -14,12 +18,12 @@ alias g="git"
 alias s="svn"
 alias m="$nice make"
 alias gm="$nice gmake"
-alias mj="time env CCACHE_PREFIX=distcc $nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)"
+alias mj="time env $CCP $nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)"
 alias mjv="mj V=1 VERBOSE=1"
-alias ml="time env CCACHE_PREFIX=distcc $nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)"
-alias ml2="time env CCACHE_PREFIX=distcc $nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
-alias mjd="time env CCACHE_PREFIX=distcc $nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
-alias mjdz="time env CCACHE_PREFIX=distcc $nice make -j $((`distcc -j || echo 2`)) -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias ml="time env $CCP $nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)"
+alias ml2="time env $CCP $nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias mjd="time env $CCP $nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias mjdz="time env $CCP $nice make -j $((`distcc -j || echo 2`)) -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
 
 alias q='exit'
 alias sc='screen -DR'
