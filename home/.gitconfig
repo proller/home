@@ -77,4 +77,4 @@
 [rebase]
 	autostash = true
 [submodule]
-    recurse = true
+#    recurse = true
