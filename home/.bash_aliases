@@ -1,7 +1,7 @@
 #echo bash init run
 export EDITOR=mcedit
 export LANG=en_US.UTF-8
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/usr/local/bin:$HOME/bin"
 
 distccj=`distcc -j 2> /dev/null`
 [ -z $distccj ] && distccj=0
