@@ -32,9 +32,9 @@ alias sc='screen -DR'
 alias tf='tail -F'
 alias jf='json_xs <'
 alias dut='du | sort -rn | head -n 20'
-ssc() { /usr/local/bin/ssh -t $* screen $screen_opt -DR || ssh -t $* screen $screen_opt -DR || ssh $*; }
-#ssc() { /usr/local/bin/ssh -z $* screen -DR || ssh -t $* screen -DR; }
-ssz() { /usr/local/bin/ssh -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
+ssc() { /usr/local/bin/ssh -A -t $* screen $screen_opt -DR || ssh -A -t $* screen $screen_opt -DR || ssh -A $*; }
+#ssc() { /usr/local/bin/ssh -A -z $* screen -DR || ssh -A -t $* screen -DR; }
+ssz() { /usr/local/bin/ssh -A -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
 t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 p() { perl -E "say q{}, sub{ $* }->()"; }
 kd() { KDevelop.AppImage $* > /dev/null 2>&1 < /dev/null & }
