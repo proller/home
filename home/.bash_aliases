@@ -22,10 +22,10 @@ alias mj="time env $CCP $nice make -j $(nproc || sysctl -n hw.ncpu || echo 2)"
 alias mjv="mj V=1 VERBOSE=1"
 alias ml="time env $CCP $nice make -j -l $(nproc || sysctl -n hw.ncpu || echo 2)"
 alias ml2="time env $CCP $nice make -j -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
-alias mjd="time env $CCP $nice make -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
-alias mjdz="time env $CCP $nice make -j $((`distcc -j || echo 2`)) -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias mjd="time env $CCP $nice make -j `$distccj || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias mjdz="time env $CCP $nice make -j $((`$distccj || echo 2`)) -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
 alias n="$nice ninja -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
-alias nj="$nice ninja -j `distcc -j || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
+alias nj="$nice ninja -j `$distccj || nproc || sysctl -n hw.ncpu || echo 4` -l $((`nproc || sysctl -n hw.ncpu || echo 2`*2))"
 
 alias q='exit'
 alias sc='screen -DR'
