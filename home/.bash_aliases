@@ -4,7 +4,7 @@ export LANG=en_US.UTF-8
 export PATH="$PATH:/usr/local/bin:$HOME/bin"
 
 distccj=`distcc -j 2> /dev/null`
-[ -z $distccj ] && distccj=0
+[ -z $distccj ] && distccj=false
 (("$distccj" >= "1")) && export CCACHE_PREFIX=distcc
 [ -n "$CCACHE_PREFIX" ] && CCP=CCACHE_PREFIX=distcc
 
