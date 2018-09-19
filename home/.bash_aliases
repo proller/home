@@ -7,6 +7,7 @@ distccj=`distcc -j 2> /dev/null`
 [ -z $distccj ] && distccj=false
 (("$distccj" >= "1")) && export CCACHE_PREFIX=distcc
 [ -n "$CCACHE_PREFIX" ] && CCP=CCACHE_PREFIX=distcc
+export DISTCC_TCP_CORK=0
 
 nice="nice -n20"
 screen_opt="-a -h 100000 -U"
