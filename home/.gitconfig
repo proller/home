@@ -43,6 +43,7 @@
 	s	= status
 	su	= "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
 	sub	= !(git submodule update --init --recursive)
+	ss	= !(git submodule sync)
 	t	= tag
 	#up	= !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
 	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
@@ -72,6 +73,7 @@
 	default	= current
 [credential]
 	helper	= cache --timeout=8640000
+	helper	= store
 [stash]
 	showPatch = true
 [rebase]
