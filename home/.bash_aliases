@@ -51,12 +51,14 @@ shopt -s histappend                      # append to history, don't overwrite it
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
-# https://superuser.com/questions/180148/how-do-you-get-screen-to-automatically-connect-to-the-current-ssh-agent-when-re
-#if test "$SSH_AUTH_SOCK" ; then
-if [ -e "${SSH_AUTH_SOCK}" ] && [ "${SSH_AUTH_SOCK}" != "$HOME/.ssh/ssh_auth_sock" ]; then
-    ln -sf $SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+ssh_auth="${HOME}/.ssh/ssh_auth_sock"
+if [ -n "${SSH_AUTH_SOCK}" -a "${SSH_AUTH_SOCK}" != "${ssh_auth}" ]; then
+    ln -sf "${SSH_AUTH_SOCK}" "${ssh_auth}.$$"
+    chmod go-rwx "${ssh_auth}.$$"
+    mv "${ssh_auth}.$$" "${ssh_auth}"
+    export SSH_AUTH_SOCK="${ssh_auth}"
 fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
 
 #alias postcmd 'echo -ne "^[k\!#:0^[\\"'
 
