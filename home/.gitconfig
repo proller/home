@@ -5,6 +5,7 @@
 	bl	= blame
 	bw	= "!f() { git blame -w --ignore-all-space --ignore-blank-lines $*; }; f"
 	co	= checkout
+	cof	= "!f() { git checkout --force $*; }; f"
 	ci	= commit
 	cl	= "!f() { git clone --recursive $*; }; f"
 	cp	= cherry-pick
