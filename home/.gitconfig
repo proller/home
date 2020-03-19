@@ -26,7 +26,7 @@
 	f	= fetch
 	fa	= !(git fetch --all)
 	ft	= !(git fetch --tags)
-	l	= log
+	l	= "!f() { git log $*; }; f"
 	lp	= "!f() { git log -p -- $*; }; f"
 	l0	= "!f() { git log -U0 -- $*; }; f"
 	lpw	= "!f() { git log -w --ignore-all-space --ignore-blank-lines -p -- $*; }; f"
@@ -35,11 +35,13 @@
 	ma	= !(git merge --abort)
 	msp	= "!f() { git merge -s recursive -X histogram -X ignore-all-space -X ignore-space-change -X ignore-space-at-eol -X renormalize $1; }; f"
 	msq	= "!f() { git merge --squash $*; }; f"
+	mt	= "!f() { git mergetool -y $*; }; f"
 	p	= pull
 	pa	= !(git pull --all)
 	ra	= !(git rebase --abort)
 	rem	= remote
 	res	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
+	ru	= "!f() { git reset upstream/master $*; }; f"
 	rv	= "!f() { git remote -v $*; }; f"
 	sh	= show
 	st	= status
