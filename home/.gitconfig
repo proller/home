@@ -25,6 +25,7 @@
 	dw	= "!f() { git diff -w --ignore-all-space --ignore-blank-lines -- $*; }; f"
 	f	= fetch
 	fa	= !(git fetch --all)
+	ft	= !(git fetch --tags)
 	l	= log
 	lp	= "!f() { git log -p -- $*; }; f"
 	l0	= "!f() { git log -U0 -- $*; }; f"
