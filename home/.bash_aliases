@@ -36,6 +36,7 @@ alias dut='du | sort -rn | head -n 20'
 ssc() { /usr/local/bin/ssh -A -t $* screen $screen_opt -DR || ssh -A -t $* screen $screen_opt -DR || ssh -A $*; }
 #ssc() { /usr/local/bin/ssh -A -z $* screen -DR || ssh -A -t $* screen -DR; }
 ssz() { /usr/local/bin/ssh -A -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
+ssv() { ssh -A -t $* "apt update && sleep 1 && apt install -y screen mc && screen $screen_opt -DR"; }
 t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 p() { perl -E "say q{}, sub{ $* }->()"; }
 kd() { KDevelop.AppImage $* > /dev/null 2>&1 < /dev/null & }

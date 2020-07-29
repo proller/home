@@ -29,6 +29,7 @@
 	l	= "!f() { git log $*; }; f"
 	lp	= "!f() { git log -p -- $*; }; f"
 	l0	= "!f() { git log -U0 -- $*; }; f"
+	lm0	= "!f() { git log -m -U0 -- $*; }; f"
 	lpw	= "!f() { git log -w --ignore-all-space --ignore-blank-lines -p -- $*; }; f"
 	lf	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	m	= merge
