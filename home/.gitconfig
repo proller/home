@@ -11,6 +11,7 @@
 	cp	= cherry-pick
 	cpa	= !(git cherry-pick --abort)
 	cpc	= !(git cherry-pick --continue)
+	cpn	= !(git cherry-pick --no-commit)
 	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
 	ou	= "!f() { git checkout --ours $*; git add $*; }; f"
 	d	= diff
@@ -41,6 +42,7 @@
 	p	= pull
 	pa	= !(git pull --all)
 	ra	= !(git rebase --abort)
+	rc	= !(git rebase --continue)
 	rem	= remote
 	res	= "!f() { git reset -- $*; git checkout -- $*; }; f; f"
 	ru	= "!f() { git reset upstream/master $*; }; f"
