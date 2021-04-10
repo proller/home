@@ -5,13 +5,14 @@
 	bl	= blame
 	bw	= "!f() { git blame -w --ignore-all-space --ignore-blank-lines $*; }; f"
 	co	= checkout
+	cou	= "!f() { git checkout $* && git up; }; f"
 	cof	= "!f() { git checkout --force $*; }; f"
 	ci	= commit
 	cl	= "!f() { git clone --recursive $*; }; f"
 	cp	= cherry-pick
 	cpa	= !(git cherry-pick --abort)
 	cpc	= !(git cherry-pick --continue)
-	cpn	= !(git cherry-pick --no-commit)
+	cpn	= "!f() { git cherry-pick --no-commit $*; }; f"
 	th	= "!f() { git checkout --theirs $*; git add $*; }; f"
 	ou	= "!f() { git checkout --ours $*; git add $*; }; f"
 	d	= diff
