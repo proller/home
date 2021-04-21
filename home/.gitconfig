@@ -60,6 +60,7 @@
 	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
 	u	= !git us
 	ua	= "!f() { git us; git fa; }; f"
+	udd	= "!f() { git u && git upd && git dd; }; f"
 	us	= "!f() { git up; git sub; }; f"
 	ups	= !(git fetch upstream && git merge --no-edit upstream/master)
 	upss	= !(git fetch upstream && git stash && git merge --no-edit upstream/master && git stash pop)
