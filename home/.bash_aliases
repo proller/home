@@ -56,7 +56,7 @@ ssh_auth="${HOME}/.ssh/ssh_auth_sock"
 if [ -n "${SSH_AUTH_SOCK}" -a "${SSH_AUTH_SOCK}" != "${ssh_auth}" -a -e "${SSH_AUTH_SOCK}" ]; then
     ln -sf "${SSH_AUTH_SOCK}" "${ssh_auth}.$$" ||:
     chmod go-rwx "${ssh_auth}.$$" ||:
-    mv "${ssh_auth}.$$" "${ssh_auth}" ||:
+    ln -sf "${ssh_auth}.$$" "${ssh_auth}" ||:
     export SSH_AUTH_SOCK="${ssh_auth}"
 fi
 

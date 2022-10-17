@@ -49,3 +49,7 @@ alias q		exit
 alias sc	screen -DR
 alias tf	tail -F
 alias jf	json_xs <
+
+export HISTCONTROL=ignoreboth:ignoredups:erasedups
+export HISTSIZE=10000
+export HISTFILESIZE=1000000
