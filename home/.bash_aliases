@@ -34,7 +34,8 @@ alias tf='tail -F'
 alias jf='json_xs <'
 alias dut='du | sort -rn | head -n 20'
 ssc() { /usr/local/bin/ssh -A -t $* screen $screen_opt -DR || ssh -A -t $* screen $screen_opt -DR || ssh -A $*; }
-#ssc() { /usr/local/bin/ssh -A -z $* screen -DR || ssh -A -t $* screen -DR; }
+sst() { /usr/local/bin/ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A $*; }
+ssr() { set -x; for i in {1..10}; do ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A $*; sleep $i; done; }
 ssz() { /usr/local/bin/ssh -A -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
 ssv() { ssh -A -t $* "apt update && sleep 1 && apt install -y screen mc dstat && screen $screen_opt -DR"; }
 t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
