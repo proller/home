@@ -30,6 +30,7 @@ alias nj="$nice ninja -j `( [ -n $distccj ] && echo $distccj ) || nproc || sysct
 
 alias q='exit'
 alias sc='screen -DR'
+alias tm='tmux $tmux_opt new-session -A -s 0'
 alias tf='tail -F'
 alias jf='json_xs <'
 alias dut='du | sort -rn | head -n 20'
