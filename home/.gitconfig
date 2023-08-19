@@ -26,6 +26,7 @@
 	dos	= "!f() { git diff origin/master --stat -- $*; }; f"
 	dt	= "!f() { git difftool -y $*; }; f"
 	dw	= "!f() { git diff -w --ignore-all-space --ignore-blank-lines -- $*; }; f"
+	d0	= "!f() { git diff --unified=0 -w --ignore-all-space --ignore-blank-lines $*; }; f"
 	f	= fetch
 	fa	= !(git fetch --all)
 	ft	= !(git fetch --tags)
