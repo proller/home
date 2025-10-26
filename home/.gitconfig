@@ -56,9 +56,10 @@
 	sub	= !(git submodule update --init --recursive)
 	ss	= !(git submodule sync)
 	sss	= "!f() { git submodule sync; git submodule update --init --recursive; }; f"
+	sm      = "!f() { name=$1; shift; git checkout -b users/${USER}/$name; [ -z "$*" ] || git add $*; git ci -m "${name}" $*; git push; }; f"
 	t	= tag
 	#up	= !(git pull || ((git stash && git pull --rebase >&2) | grep -v "No local changes to save" && git stash pop))
-	up	= !(git stash && git pull --rebase >&2) | grep -v \"No local changes to save\" && git stash pop
+	up	= !(git pull --autostash --rebase)
 	u	= !git us
 	ua	= "!f() { git us; git fa; }; f"
 	udd	= "!f() { git u && git upd && git dd; }; f"

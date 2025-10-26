@@ -34,7 +34,7 @@ alias tm='tmux $tmux_opt new-session -A -s 0'
 alias tf='tail -F'
 alias jf='json_xs <'
 #alias dut='du | sort -rn | head -n 20'
-dut() { du $* | sort -rn | head -n 20; }
+dut() { du --one-file-system $* | sort -rn | head -n 20; }
 ssc() { /usr/local/bin/ssh -A -t $* screen $screen_opt -DR || ssh -A -t $* screen $screen_opt -DR || ssh -A $*; }
 sst() { /usr/local/bin/ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A $*; }
 ssr() { set -x; for i in {1..10}; do ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A $*; sleep $i; done; }
