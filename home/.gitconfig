@@ -94,3 +94,5 @@
 	autostash = true
 [submodule]
 #    recurse = true
+[protocol]
+	version = 2
