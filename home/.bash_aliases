@@ -30,16 +30,17 @@ alias nj="$nice ninja -j `( [ -n $distccj ] && echo $distccj ) || nproc || sysct
 
 alias q='exit'
 alias sc='screen -DR'
-alias tm='tmux $tmux_opt new-session -A -s 0'
+alias tm='tmux $tmux_opt set-option -g history-limit 100000 \; new-session -A -s 0'
 alias tf='tail -F'
 alias jf='json_xs <'
 #alias dut='du | sort -rn | head -n 20'
 dut() { du --one-file-system $* | sort -rn | head -n 20; }
-ssc() { /usr/local/bin/ssh -A -t $* screen $screen_opt -DR || ssh -A -t $* screen $screen_opt -DR || ssh -A $*; }
-sst() { /usr/local/bin/ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A $*; }
-ssr() { set -x; for i in {1..10}; do ssh -A -t $* tmux $tmux_opt new-session -A -s 0 || ssh -A $*; sleep $i; done; }
-ssz() { /usr/local/bin/ssh -A -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
-ssv() { ssh -A -t $* "apt update && sleep 1 && apt install -y screen mc dstat && screen $screen_opt -DR"; }
+#ssc() { /usr/local/bin/ssh -A -t $* screen $screen_opt -DR || ssh -A -t $* screen $screen_opt -DR || ssh -A $*; }
+sst() { /usr/local/bin/ssh -A -t $* tmux $tmux_opt set-option -g history-limit 100000 '\;' new-session -A -s 0 || ssh -A -t $* tmux $tmux_opt set-option -g history-limit 100000 '\;' new-session -A -s 0 || ssh -A $*; }
+srr() { set -x; for i in {1..10}; do ssh -A -t $* tmux $tmux_opt set-option -g history-limit 100000 '\;' new-session -A -s 0 || ssh -A $*; sleep $i; done; }
+ssr() { set -x; for i in {1..10}; do ssh -A -t $* tmux $tmux_opt set-option -g history-limit 100000 '\;' new-session -A -s 0; sleep $i; done; }
+#ssz() { /usr/local/bin/ssh -A -o "UserKnownHostsFile ~/.ssh/known_hosts_sctp" -z -t $* screen $screen_opt -DR; }
+#ssv() { ssh -A -t $* "apt update && sleep 1 && apt install -y screen mc dstat && screen $screen_opt -DR"; }
 t() { perl -E "say map {scalar localtime \$_, qq{\n}} qw( $* )"; }
 p() { perl -E "say q{}, sub{ $* }->()"; }
 kd() { KDevelop.AppImage $* > /dev/null 2>&1 < /dev/null & }
